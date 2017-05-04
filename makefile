@@ -1,6 +1,6 @@
-helloos:helloos.o
-	ld -m elf_i386 -o helloos helloos.o
-helloos.o:helloos.s
-	nasm -f elf -o helloos.o helloos.s
+minios:boot.o
+	dd status=noxfer conv=notrunc if=minios.bin of=minios.flp
+boot.o:boot.asm
+	nasm -f bin -o minios.bin boot.asm
 clean:
-	rm -f *.o helloos
+	rm -f *.o minios
